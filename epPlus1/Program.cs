@@ -6,7 +6,7 @@ using OfficeOpenXml.Style;
 
 namespace epPlus1;
 
-class Program
+static class Program
 {
     public static int Main(string[] args)
     {
@@ -26,7 +26,7 @@ class Program
         rootCommand.Options.Add(fileOption);
 
         ParseResult parseResult = rootCommand.Parse(args);
-        if (parseResult.Errors.Count == 0 && parseResult.GetValue(fileOption) is FileInfo parsedFile)
+        if (parseResult.Errors.Count == 0 && parseResult.GetValue(fileOption) is { } parsedFile)
         {
             CreateCalendar(parsedFile);
             return 0;
@@ -48,7 +48,7 @@ class Program
         
         // Open the workbook (or create it if it doesn't exist)
         using var p = new ExcelPackage(workbookFile);
-        // Get the Worksheet created in the previous codesample. 
+        // Get the Worksheet created in the previous code sample. 
         var ws= p.Workbook.Worksheets.Add("MySheet");
 
         ws.PrinterSettings.PaperSize = ePaperSize.A4;
@@ -99,7 +99,7 @@ class Program
         cell.Style.Border.Top.Style = borderStyle;
         
         cell = ws.Cells[3, index];
-        cell.Formula = "=" + address.ToString();
+        cell.Formula = "=" + address;
         cell.Style.Numberformat.Format = dateFormatDayOfMonth;
         cell.Style.Font.Size = 24;
         cell.Style.Font.Bold = true;
@@ -122,7 +122,7 @@ class Program
         cell = ws.Cells[26, index];
         if (date.DayOfWeek == DayOfWeek.Tuesday || date.Day == 2)
         {
-            cell.Formula = "=" + address.ToString();
+            cell.Formula = "=" + address;
             cell.Style.Numberformat.Format = dateFormatYear;
             cell.Style.Font.Size = 18;
             cell.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
@@ -131,7 +131,7 @@ class Program
 
         if (date.DayOfWeek == DayOfWeek.Monday ||  date.Day == 1)
         {
-            cell.Formula = "=" + address.ToString();
+            cell.Formula = "=" + address;
             cell.Style.Numberformat.Format = dateFormatMonthName;
             cell.Style.Font.Size = 16;
             cell.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;

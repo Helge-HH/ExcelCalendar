@@ -1,0 +1,4 @@
+﻿<Solution>
+  <Project Path="epPlus1\epPlus1.csproj" Type="Classic C#" />
+  <Project Path="Test\Test.csproj" Type="Classic C#" />
+</Solution>
