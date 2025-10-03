@@ -1,4 +1,4 @@
 ﻿<Solution>
-  <Project Path="epPlus1\epPlus1.csproj" Type="Classic C#" />
-  <Project Path="Test\Test.csproj" Type="Classic C#" />
+  <Project Path="ExcelCalendar.Test\ExcelCalendar.Test.csproj" Type="Classic C#" />
+  <Project Path="ExcelCalendar\ExcelCalendar.csproj" Type="Classic C#" />
 </Solution>

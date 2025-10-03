@@ -1,44 +1,12 @@
-﻿using System.CommandLine;
-using System.CommandLine.Parsing;
 using System.Drawing;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
 
-namespace epPlus1;
+namespace ExcelCalendar;
 
-static class Program
+static class CalendarExport
 {
-    public static int Main(string[] args)
-    {
-        // If you use EPPlus for Noncommercial personal use.
-        ExcelPackage.License
-            .SetNonCommercialPersonal(
-                "Helge Meyer"); //This will also set the Author property to the name provided in the argument.
-
-        Console.WriteLine("Hello, World!");
-
-        Option<FileInfo> fileOption = new("--output", ["-o"])
-        {
-            Description = "The Excel (xlsx) file to create the calendar.",
-            Required = true
-        };
-        RootCommand rootCommand = new("Sample app for System.CommandLine");
-        rootCommand.Options.Add(fileOption);
-
-        ParseResult parseResult = rootCommand.Parse(args);
-        if (parseResult.Errors.Count == 0 && parseResult.GetValue(fileOption) is { } parsedFile)
-        {
-            CreateCalendar(parsedFile);
-            return 0;
-        }
-        foreach (ParseError parseError in parseResult.Errors)
-        {
-            Console.Error.WriteLine(parseError.Message);
-        }
-        return 1;
-    }
-
-    static void CreateCalendar(FileInfo workbookFile)
+    public static void CreateCalendar(FileInfo workbookFile)
     {
         //var myDocumentsFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         //var workbookFile = Path.Combine(myDocumentsFolder, "MyWorkbook.xlsx");
@@ -53,18 +21,19 @@ static class Program
 
         ws.PrinterSettings.PaperSize = ePaperSize.A4;
         ws.PrinterSettings.Orientation = eOrientation.Landscape;
+        //ws.PrinterSettings.FitToPage = true;
         
         var date = DateOnly.FromDateTime(DateTime.Now);
         for (var i = 1; i <= 10; i++)
         {
-            CreateDay(ws, date.AddDays(i), i);
+            CreateDay(ws, date.AddDays(i - 1), i);
         }
 
         // Save and close the package.
         p.Save();
     }
 
-    static void CreateDay(ExcelWorksheet ws, DateOnly date, int index)
+    private static void CreateDay(ExcelWorksheet ws, DateOnly date, int index)
     {
         const string dateFormatDayLong = "[$-407]dddd";
         const string dateFormatDayOfMonth = "[$-407]d.";

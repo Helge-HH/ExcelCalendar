@@ -1,7 +1,6 @@
 ﻿using System.Text.Json;
-using epPlus1;
 
-namespace Test;
+namespace ExcelCalendar.Test;
 
 public class AnniversaryConverterTest
 {
@@ -35,5 +34,19 @@ public class AnniversaryConverterTest
         var anniversaries = JsonSerializer.Deserialize<Anniversary[]>(json1);
 
         Assert.Equal(anniversaryExpected, anniversaries);
+    }
+
+    [Fact]
+    public void CalendarDayCanConvertToJsonTest()
+    {
+        CalendarDay[] calendarDays =
+        [
+            new(name: "Helge", type: EventType.Birthday, date: new Anniversary(15, 11)),
+            new(name: "Tag dt. Einheit", type: EventType.Holyday, date: new Anniversary(3, 10))
+        ];
+        
+        string json1 = JsonSerializer.Serialize(calendarDays, new JsonSerializerOptions { WriteIndented = false });
+
+        Assert.Equal("[{\"Name\":\"Helge\",\"Date\":\"15.11\",\"Event\":\"Birthday\"},{\"Name\":\"Tag dt. Einheit\",\"Date\":\"3.10\",\"Event\":\"Holyday\"}]", json1);
     }
 }

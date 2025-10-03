@@ -1,0 +1,112 @@
+﻿[
+  {
+    "Name": "Neujahr",
+    "Date": "1.1",
+    "Event": "Holyday"
+  },
+  {
+    "Name": "Heil. 3 K\u00F6nige",
+    "Date": "6.1",
+    "Event": "Holyday"
+  },
+  {
+    "Name": "Valentinstag",
+    "Date": "14.2",
+    "Event": "Holyday"
+  },
+  {
+    "Name": "Karfreitag",
+    "Date": "18.4",
+    "Event": "Holyday"
+  },
+  {
+    "Name": "Ostern",
+    "Date": "20.4",
+    "Event": "Holyday"
+  },
+  {
+    "Name": "Ostern",
+    "Date": "21.4",
+    "Event": "Holyday"
+  },
+  {
+    "Name": "Mai-Feiertag",
+    "Date": "1.5",
+    "Event": "Holyday"
+  },
+  {
+    "Name": "Himmelfahrt",
+    "Date": "29.5",
+    "Event": "Holyday"
+  },
+  {
+    "Name": "Pfingstsonntag",
+    "Date": "8.6",
+    "Event": "Holyday"
+  },
+  {
+    "Name": "Pfingstmontag",
+    "Date": "9.6",
+    "Event": "Holyday"
+  },
+  {
+    "Name": "Tag dt. Einheit",
+    "Date": "3.10",
+    "Event": "Holyday"
+  },
+  {
+    "Name": "Reformationstag",
+    "Date": "31.10",
+    "Event": "Holyday"
+  },
+  {
+    "Name": "Martinstag",
+    "Date": "11.11",
+    "Event": "Holyday"
+  },
+  {
+    "Name": "1. Advent",
+    "Date": "30.11",
+    "Event": "Holyday"
+  },
+  {
+    "Name": "Nikolaustag",
+    "Date": "6.12",
+    "Event": "Holyday"
+  },
+  {
+    "Name": "2. Advent",
+    "Date": "7.12",
+    "Event": "Holyday"
+  },
+  {
+    "Name": "3. Advent",
+    "Date": "14.12",
+    "Event": "Holyday"
+  },
+  {
+    "Name": "4. Advent",
+    "Date": "21.12",
+    "Event": "Holyday"
+  },
+  {
+    "Name": "Heiligabend",
+    "Date": "24.12",
+    "Event": "Holyday"
+  },
+  {
+    "Name": "Weihnachten",
+    "Date": "25.12",
+    "Event": "Holyday"
+  },
+  {
+    "Name": "Weihnachten",
+    "Date": "26.12",
+    "Event": "Holyday"
+  },
+  {
+    "Name": "Silvester",
+    "Date": "31.12",
+    "Event": "Holyday"
+  }
+]
